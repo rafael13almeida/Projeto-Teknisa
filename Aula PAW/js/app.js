@@ -163,5 +163,45 @@ userData.languages = Array.from(cardUser.querySelectorAll(".languages >.iconLang
     return acc;
 },{});
 userData.picture = cardUser.querySelector(".profile.picture > img").getAttribute('src');
-
 //68
+function fillModal(userInfo) {
+    let descriptionLanguages = getDescriptionLanguage();
+}
+
+function getDescriptionLanguage() {
+    let description = {
+        js: "JavaScript",
+        php: "PHP",
+        java: "Java",
+        python: "Python",
+    };
+    return description;
+}
+
+languages = Object.keys(userInfo.languages).map((langCode) => {
+    return `
+    <div class="languageDescripton">
+        <div class="language-name">
+            <img name="${langCode}" class="iconLanguage" src="images/${langCode}.png" alt="language"/>
+            <span>${descriptionLanguages[langCode]}</span>
+        </div>
+        <div class="modal-experience">
+            <span>${userInfo.languages[langCode]}Anos</span>
+        </div>
+    </div>
+    `;
+})
+.join("\n");
+
+modal = modalTemplate
+modal = modal.replaceALL('__DEV_IMAGE__', userInfo.picture);
+modal = modal.replaceALL('__DEV_NAME__', userInfo.userName);
+modal = modal.replaceALL('__DEV_AGE__', userInfo.age);
+modal = modal.replaceALL('__DEV_DESCRIPTION__', userInfo.description);
+modal = modal.replaceALL('__DEV_DESCRIPTION_ABILITY__', userInfo.descriptionAbility);
+modal = modal.replaceALL('__DEV_MAIL__', userInfo.mail);
+modal = modal.replaceALL('__DEV_PHONE__', userInfo.phone);
+modal = modal.replaceALL('__DEV_GIT__', userInfo.github);
+modal = modal.replaceALL('__DEV_LANGUAGES__', userInfo.languages);
+document.querySelector("#modal-profile").innerHTML = modal;
+

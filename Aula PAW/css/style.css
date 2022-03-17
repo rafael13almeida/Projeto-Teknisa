@@ -131,3 +131,78 @@ header > section {
 .modal-container.mostrar{
     display: flex;
 }
+
+.fechar {
+  position: absolute;
+  font-size: 1.2em;
+  top: 0px;
+  right: 0px;
+  width: 50px;
+  height: 50px;
+  border: none;
+  background: none;
+  color: #777777;
+  cursor: pointer;
+}
+
+@keyframes modal {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -60px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.mostrar .modal {
+  animation: modal 0.3s;
+}
+
+.modal > span {
+  display: inline-flex;
+  font-size: 16px;
+}
+
+.modal > a {
+  display: inline-flex;
+  font-size: 16px;
+}
+
+.profileDescriptionModal {
+  margin: 0px, 10px;
+}
+
+*[name = "age"]::after {
+  content: " Anos";
+}
+
+.modal .languages {
+  display: flex;
+  flex-direction: column;
+}
+.modal .languageDescription {
+  display: flex;
+  flex-direction: row;
+}
+.modal .modal-experience {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.modal .language-name {
+  min-width: 120px;
+  flex: 1;
+  flex-direction: row;
+  align-items: center;
+}
+
+.modal .language-name > span {
+  padding: 0 20px;
+}
+
+.modal .profileDescriptionModal > div > h3 {
+  margin-top: 10px;
+}
